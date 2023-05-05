@@ -45,18 +45,23 @@ namespace HTTPClientFactoryPractice.Services
 
         public async Task<RegisterResponse> LoginAsync(string email = null, string password = null)
         {
-            var create = await _httpClientService.SendAsync<RegisterResponse, LoginRequest>(
+            var create = await _httpClientService.SendAsync<RegisterResponse, RegisterRequest>(
                 $"{_options.Host}{_loginApi}",
                 HttpMethod.Post,
-                new LoginRequest
+                new RegisterRequest
                 {
-                    FormContent = new FormUrlEncodedContent(new[]
-                    {
-                        new KeyValuePair<string, string>("email", email),
-                        new KeyValuePair<string, string>("password", password)
-                    })
+                     Email = email,
+                     Password = password
                 });
 
+            // ew LoginRequest
+            // {
+            //    FormContent = new FormUrlEncodedContent(new[]
+            //    {
+            //        new KeyValuePair<string, string>("email", email),
+            //        new KeyValuePair<string, string>("password", password)
+            //    })
+            // });
             if (create != null)
             {
                 _logger.LogInformation($"Login was saccessed");
