@@ -5,9 +5,9 @@ namespace HTTPClientFactoryPractice
     public class App
     {
         private readonly IUserService _userService;
-        private readonly IResourceService _resourceService;
+        private readonly IAuthService _resourceService;
         private readonly IRegisterService _registerService;
-        public App(IUserService userService, IResourceService resourceService, IRegisterService registerService)
+        public App(IUserService userService, IAuthService resourceService, IRegisterService registerService)
         {
             _userService = userService;
             _resourceService = resourceService;

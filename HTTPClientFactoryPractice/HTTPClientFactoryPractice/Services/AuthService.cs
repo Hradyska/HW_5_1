@@ -7,18 +7,18 @@ using Microsoft.Extensions.Options;
 
 namespace HTTPClientFactoryPractice.Services
 {
-    public class RegisterService : IRegisterService
+    public class AuthService : IRegisterService
     {
         private readonly IInternalHTTPClientService _httpClientService;
-        private readonly ILogger<RegisterService> _logger;
+        private readonly ILogger<AuthService> _logger;
         private readonly APIOption _options;
         private readonly string _registerApi = "api/register";
         private readonly string _loginApi = "api/login";
 
-        public RegisterService(
+        public AuthService(
             IInternalHTTPClientService httpClientService,
             IOptions<APIOption> options,
-            ILogger<RegisterService> logger)
+            ILogger<AuthService> logger)
         {
             _httpClientService = httpClientService;
             _logger = logger;

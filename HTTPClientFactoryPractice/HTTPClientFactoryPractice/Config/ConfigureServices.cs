@@ -15,8 +15,8 @@ namespace HTTPClientFactoryPractice.Config
                 .AddHttpClient()
                 .AddTransient<IInternalHTTPClientService, InternalHTTPClientService>()
                 .AddTransient<IUserService, UserService>()
-                .AddTransient<IResourceService, ResourceService>()
-                .AddTransient<IRegisterService, RegisterService>()
+                .AddTransient<IAuthService, ResourceService>()
+                .AddTransient<IRegisterService, AuthService>()
                 .AddTransient<App>();
         }
     }

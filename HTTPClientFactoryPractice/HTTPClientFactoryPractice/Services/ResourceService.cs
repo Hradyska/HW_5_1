@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace HTTPClientFactoryPractice.Services
 {
-    public class ResourceService : IResourceService
+    public class ResourceService : IAuthService
     {
         private readonly IInternalHTTPClientService _httpClientService;
         private readonly ILogger<ResourceService> _logger;
