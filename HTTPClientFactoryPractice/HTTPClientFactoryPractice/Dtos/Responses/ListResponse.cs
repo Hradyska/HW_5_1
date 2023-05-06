@@ -2,7 +2,7 @@
 
 namespace HTTPClientFactoryPractice.Dtos.Responses
 {
-    public class ListResponse<T>
+    public class ListResponse<T> : BaseResponse<List<T>>
     {
         public int Page { get; set; }
         [JsonProperty(PropertyName = "per_page")]
@@ -10,7 +10,5 @@ namespace HTTPClientFactoryPractice.Dtos.Responses
         public int Total { get; set; }
         [JsonProperty(PropertyName = "total_pages")]
         public int TotalPages { get; set; }
-        public List<T> Data { get; set; }
-        public SupportDto Support { get; set; }
     }
 }

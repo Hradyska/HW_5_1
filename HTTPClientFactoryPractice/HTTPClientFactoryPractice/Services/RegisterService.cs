@@ -43,25 +43,17 @@ namespace HTTPClientFactoryPractice.Services
             return create;
         }
 
-        public async Task<RegisterResponse> LoginAsync(string email = null, string password = null)
+        public async Task<LoginResponce> LoginAsync(string email = null, string password = null)
         {
-            var create = await _httpClientService.SendAsync<RegisterResponse, RegisterRequest>(
+            var create = await _httpClientService.SendAsync<LoginResponce, LoginRequest>(
                 $"{_options.Host}{_loginApi}",
                 HttpMethod.Post,
-                new RegisterRequest
+                new LoginRequest
                 {
                      Email = email,
                      Password = password
                 });
 
-            // ew LoginRequest
-            // {
-            //    FormContent = new FormUrlEncodedContent(new[]
-            //    {
-            //        new KeyValuePair<string, string>("email", email),
-            //        new KeyValuePair<string, string>("password", password)
-            //    })
-            // });
             if (create != null)
             {
                 _logger.LogInformation($"Login was saccessed");

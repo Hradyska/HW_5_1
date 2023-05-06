@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
 
-namespace HTTPClientFactoryPractice.Dtos.Requests
+namespace HTTPClientFactoryPractice.Dtos.Responses
 {
-    public class LoginRequest : RegisterRequest
+    public class LoginResponce
     {
+        public string Token { get; set; }
     }
 }
